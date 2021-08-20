@@ -1,0 +1,21 @@
+﻿<Window x:Class="StarWarsViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StarWarsViewer"
+        xmlns:converters="clr-namespace:StarWarsViewer.Converters"
+        mc:Ignorable="d"
+        Title="Detail Walker" Height="600" Width="300">
+    <Window.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button HorizontalAlignment="Left" Height="30" Width="60" Click="Button_Click" Margin="5, 5, 5, 5" Visibility="{Binding ShowBack, Converter={StaticResource BoolToVisibilityConverter}}">Back</Button>
+        <ContentControl  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Row="1" Content="{Binding CurrentView}"/>
+    </Grid>
+</Window>
